@@ -36,8 +36,8 @@ RSpec.feature 'Create a Etd', js: false do
       click_link "Add new work"
 
       # If you generate more than one work uncomment these lines
-      # choose "payload_concern", option: "Etd"
-      # click_button "Create work"
+      choose "payload_concern", option: "Etd"
+      click_button "Create work"
 
       expect(page).to have_content "Add New Etd"
       click_link "Files" # switch tab

@@ -36,9 +36,9 @@ RSpec.feature 'Create a Image', js: false do
       click_link "Add new work"
 
       # If you generate more than one work uncomment these lines
-      # choose "payload_concern", option: "Image"
-      # click_button "Create work"
-
+       choose "payload_concern", option: "Image"
+       click_button "Create work"
+       save_and_open_page
       expect(page).to have_content "Add New Image"
       click_link "Files" # switch tab
       expect(page).to have_content "Add files"

@@ -7,10 +7,18 @@ class Etd < ActiveFedora::Base
   # Change this to restrict which works can be added as a child.
   # self.valid_child_concerns = []
   validates :title, presence: { message: 'Your work must have a title.' }
-  property :degree,      predicate: "http://vivoweb.org/ontology/core#AcademicDegree"
-  property :department,      predicate: "http://vivoweb.org/ontology/core#AcademicDepartment"
-  property :institution,      predicate: "http://schema.org/Organization"
-  property :school,      predicate: "http://vivoweb.org/ontology/core#School"
+  property :degree,      predicate: "http://vivoweb.org/ontology/core#AcademicDegree" do |index|
+    index.as :stored_searchable, :facetable
+end
+  property :department,      predicate: "http://vivoweb.org/ontology/core#AcademicDepartment"do |index|
+    index.as :stored_searchable, :facetable
+end
+  property :institution,      predicate: "http://schema.org/Organization"do |index|
+    index.as :stored_searchable, :facetable
+end
+  property :school,      predicate: "http://vivoweb.org/ontology/core#School"do |index|
+    index.as :stored_searchable, :facetable
+end
 
   # This must be included at the end, because it finalizes the metadata
   # schema (by adding accepts_nested_attributes)
