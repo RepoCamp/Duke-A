@@ -3,7 +3,16 @@
 require 'rails_helper'
 
 RSpec.describe Hyrax::EtdForm do
-  it "has tests" do
-    skip "Add your tests here"
+  subject { form }
+   let(:etd)    { Etd.new }
+   let(:ability) { Ability.new(nil) }
+   let(:request) { nil }
+   let(:form)    { described_class.new(etd, ability, request) }
+   it "has the expected terms" do
+    expect(form.terms).to include(:title)
+    expect(form.terms).to include(:degree,:department, :institution,:school) 
+#	excpect(form.terms).to include(:department) 
+#	excpect(form.terms).to include(:institution)
+#	excpect(form.terms).to include(:school)
   end
 end

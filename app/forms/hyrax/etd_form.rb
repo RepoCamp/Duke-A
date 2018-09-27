@@ -5,5 +5,6 @@ module Hyrax
   class EtdForm < Hyrax::Forms::WorkForm
     self.model_class = ::Etd
     self.terms += [:resource_type]
+    self.terms +=[:degree, :department, :institution,:school]
   end
 end
